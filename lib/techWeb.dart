@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:my_google/global.dart';
 
-class ottpage extends StatefulWidget {
-  const ottpage({Key? key}) : super(key: key);
+import 'modal.dart';
+
+
+class techWebPage extends StatefulWidget {
+  const techWebPage({Key? key}) : super(key: key);
 
   @override
-  State<ottpage> createState() => _ottpageState();
+  State<techWebPage> createState() => _techWebPageState();
 }
 
-class _ottpageState extends State<ottpage> {
+class _techWebPageState extends State<techWebPage> {
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController searchController = TextEditingController();
 
@@ -20,10 +23,10 @@ class _ottpageState extends State<ottpage> {
     // TODO: implement initState
     super.initState();
 
-    Global.pullToRefreshController = PullToRefreshController(
+    Modal.pullToRefreshController = PullToRefreshController(
         options: PullToRefreshOptions(color: Colors.blueGrey),
         onRefresh: () async {
-          await Global.inAppWebViewController.reload();
+          await Modal.inAppWebViewController.reload();
         });
   }
 
@@ -41,21 +44,21 @@ class _ottpageState extends State<ottpage> {
           children: [
             (progressVal < 1)
                 ? SizedBox(
-                    height: 5,
-                    child: LinearProgressIndicator(
-                      value: progressVal,
-                      color: Colors.green,
-                      backgroundColor: Colors.grey,
-                    ),
-                  )
+              height: 5,
+              child: LinearProgressIndicator(
+                value: progressVal,
+                color: Colors.green,
+                backgroundColor: Colors.grey,
+              ),
+            )
                 : const SizedBox(),
             Expanded(
               child: InAppWebView(
                 initialOptions: InAppWebViewGroupOptions(
                     android: AndroidInAppWebViewOptions(
-                  useHybridComposition: true,
-                )),
-                pullToRefreshController: Global.pullToRefreshController,
+                      useHybridComposition: true,
+                    )),
+                pullToRefreshController: Modal.pullToRefreshController,
                 onProgressChanged: (controller, index) {
                   setState(() {
                     progressVal = index / 100;
@@ -64,11 +67,11 @@ class _ottpageState extends State<ottpage> {
                 initialUrlRequest: URLRequest(url: Uri.parse(ottUrl)),
                 onWebViewCreated: (val) {
                   setState(() {
-                    Global.inAppWebViewController = val;
+                    Modal.inAppWebViewController = val;
                   });
                 },
                 onLoadStop: (controller, uri) async {
-                  await Global.pullToRefreshController.endRefreshing();
+                  await Modal.pullToRefreshController.endRefreshing();
                 },
               ),
             )
@@ -81,15 +84,15 @@ class _ottpageState extends State<ottpage> {
           const SizedBox(width: 15,),
           FloatingActionButton(
             onPressed: () {
-              Global.inAppWebViewController.goBack();
+              Modal.inAppWebViewController.goBack();
             },
             child: Icon(Icons.arrow_back_ios),
           ),
           FloatingActionButton(
             onPressed: () async {
-              Uri? uri = await Global.inAppWebViewController.getUrl();
+              Uri? uri = await Modal.inAppWebViewController.getUrl();
 
-              Global.myBookMark.add(uri.toString());
+              Modal.myBookMark.add(uri.toString());
             },
             child: const Icon(Icons.bookmark_border),
           ),
@@ -101,13 +104,13 @@ class _ottpageState extends State<ottpage> {
           ),
           FloatingActionButton(
             onPressed: () {
-              Global.inAppWebViewController.reload();
+              Modal.inAppWebViewController.reload();
             },
             child: Icon(Icons.refresh),
           ),
           FloatingActionButton(
             onPressed: () {
-              Global.inAppWebViewController.goForward();
+              Modal.inAppWebViewController.goForward();
             },
             child: Icon(Icons.arrow_forward_ios),
           ),

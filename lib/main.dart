@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_google/global.dart';
 import 'package:my_google/ottpage.dart';
+import 'package:my_google/techWeb.dart';
+
+import 'modal.dart';
 
 void main() {
   runApp(
@@ -9,7 +12,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => homepage(),
-        'ott': (context) => ottpage(),
+        'web': (context) => techWebPage(),
       },
     ),
   );
@@ -32,7 +35,6 @@ class _homepageState extends State<homepage> {
         elevation: 10,
         backgroundColor: Colors.blueGrey,
       ),
-      backgroundColor: Colors.blueGrey,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: ListView(
@@ -40,162 +42,124 @@ class _homepageState extends State<homepage> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.hotstar.com/in');
+                Navigator.pushNamed(context, 'web',
+                    arguments: 'https://www.wikipedia.org');
               },
               child: Container(
-                height: 150,
+                height: 120,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/disney.png'),
-                        fit: BoxFit.contain)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Disney+ Hotstar',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(
+                              image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzYZiMTbSo61rCwUVzjGJr0DdIE2v1g-Q6TwCtm_BWUFgJ0svZowEO5qC9MBRTIdVObXI&usqp=CAU'),
+                              fit: BoxFit.contain)
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text('WikiPedia',style: TextStyle(fontSize: 22,fontWeight: FontWeight.normal),)
+
+                  ],
                 ),
               ),
             ),
             const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.netflix.com/in/');
+                Navigator.pushNamed(context, 'web',
+                    arguments: 'https://www.w3schools.com/');
               },
               child: Container(
-                height: 150,
+                height: 120,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/netflix.png'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Netflix',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: NetworkImage('https://yt3.ggpht.com/dW6to0x5Crmeh7yi-YPLcQRqVrBtx2BSh8eoKTJbE8NbjloQ0sqlmdszIlxokJU_97-ndOt_=s900-c-k-c0x00ffffff-no-rj'),
+                              fit: BoxFit.cover)
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text('W3 School',style: TextStyle(fontSize: 22,fontWeight: FontWeight.normal),)
+
+                  ],
                 ),
               ),
             ),
             const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.primevideo.com/');
+                Navigator.pushNamed(context, 'web',
+                    arguments: 'https://www.javatpoint.com/');
               },
               child: Container(
-                height: 150,
+                height: 120,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/prime.png'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Amazon Prime',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoOfQkpsWCrJEiDK8cHp_KZ4nVsLhmtyTeJ02dntDU5wOZYUPxXBwZNmaz6AC7yz0_KDk&usqp=CAU'),
+                              fit: BoxFit.cover)
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text('Java T Point',style: TextStyle(fontSize: 22,fontWeight: FontWeight.normal),)
+
+                  ],
                 ),
               ),
             ),
             const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.sonyliv.com/');
+                Navigator.pushNamed(context, 'web',
+                    arguments: 'https://www.tutorialspoint.com/');
               },
               child: Container(
-                height: 150,
+                height: 120,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/sony.png'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Sony Liv',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black),
                 ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.voot.com/');
-              },
-              child: Container(
-                height: 150,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/voot.png'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Voot',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'ott',
-                    arguments: 'https://www.zee5.com/');
-              },
-              child: Container(
-                height: 150,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/image/zee.png'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black54),
-                  child: const Text(
-                    'Zee 5',
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: NetworkImage('https://play-lh.googleusercontent.com/yMRxRJJqn5uk3Gg0V7s4u6gwJFXrEXubxyfg2hjt72dBZE8be592Cndh5cQ9LBPTpiQ'),
+                              fit: BoxFit.cover)
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text('Tutorial Point',style: TextStyle(fontSize: 22,fontWeight: FontWeight.normal),)
+
+                  ],
                 ),
               ),
             ),
@@ -216,21 +180,21 @@ class _homepageState extends State<homepage> {
                   height: 500,
                   width: 400,
                   child: ListView.builder(
-                    itemCount: Global.myBookMark.length,
+                    itemCount: Modal.myBookMark.length,
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: Icon(Icons.link_outlined),
                         title: TextButton(
                           onPressed: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, 'ott', arguments: '${Global.myBookMark[index]}');
+                            Navigator.pushNamed(context, 'web', arguments: '${Modal.myBookMark[index]}');
                           },
-                          child: Text('${Global.myBookMark[index]}'),
+                          child: Text('${Modal.myBookMark[index]}'),
                         ),
                         trailing: IconButton(
                           onPressed: () {
                             setState(() {
-                              Global.myBookMark.removeAt(index);
+                              Modal.myBookMark.removeAt(index);
                               Navigator.pop(context);
                             });
                           },
