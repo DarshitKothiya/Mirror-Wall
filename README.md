@@ -1,6 +1,6 @@
 # Tech_WebSite
 
-<img src="https://user-images.githubusercontent.com/113766592/196610875-05a94c9d-d560-42d3-88e2-b565139da938.gif" style="height:450px,width:250px"/>
+<img src="https://user-images.githubusercontent.com/113766592/196610875-05a94c9d-d560-42d3-88e2-b565139da938.gif" style="height:900px,width:250px"/>
 
 
 <img src="https://user-images.githubusercontent.com/113766592/196609848-261ca00a-6a9c-4c68-b90d-1b61902d2993.jpg" style="height:450px"/>
