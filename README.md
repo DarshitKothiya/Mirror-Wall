@@ -1,8 +1,4 @@
 # Tech_WebSite
-
-
-<img src="https://user-images.githubusercontent.com/113766592/196611292-7197c120-946c-4552-a2c2-487ee0fee2a4.gif" style="height:700px,width:250px"/>
-<img src="https://user-images.githubusercontent.com/113766592/196609848-261ca00a-6a9c-4c68-b90d-1b61902d2993.jpg" style="height:450px"/>
-<img src="https://user-images.githubusercontent.com/113766592/196610095-11fde439-494e-44b6-8840-367e0326a506.jpg" style="height:450px"/>
-<img src="https://user-images.githubusercontent.com/113766592/196610102-ea2bf1e0-1c28-45d3-aa10-ac83151aec23.jpg" style="height:450px"/>
-
+![photo_2022-10-20_11-36-05](https://user-images.githubusercontent.com/113766592/196869038-0399c78f-7e69-4db8-b9e4-d9f7b7ac734f.jpg)
+![photo_2022-10-20_11-36-11](https://user-images.githubusercontent.com/113766592/196869069-8a5f51de-fa44-423a-9643-bede5716af73.jpg)
+![photo_2022-10-20_11-35-59](https://user-images.githubusercontent.com/113766592/196869087-1d2c0143-4ab7-4c21-afb0-67671320ac04.jpg)
